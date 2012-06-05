@@ -15,6 +15,5 @@ This add-in was written before [IDE Insight](http://docwiki.embarcadero.com/RADS
 
 Known Issues
 ------------
-If you remove the package while the IDE is still running, the Tool Palette in the IDE barfs. Restarting the IDE fixes it up. It’s on my list of things to fix, but it doesn’t cause massive problems as it only happens if you manually remove the package from the IDE list. If you can’t live with this, don’t install it.
-If you have suggestions or requests, let me know.
+If you remove the package while the IDE is still running, the Tool Palette in the IDE barfs. Restarting the IDE fixes it up. It was on my list of things to fix way back, but it doesn’t cause massive problems as it only happens if you manually remove the package from the IDE list. If you can’t live with this, don’t install it.
 
