@@ -10,11 +10,13 @@ type
     FAction : TCustomAction;
   protected
     function GetCanDelete: Boolean;
+    function GetEnabled: Boolean;
     function GetHelpName: string;
     function GetHintText: string;
     function GetIDString: string;
     function GetName: string;
     function GetVisible: Boolean;
+    procedure SetEnabled(Value: Boolean);
     procedure SetHelpName(const Value: string);
     procedure SetName(const Value: string);
     procedure SetVisible(const Value: Boolean);
@@ -25,6 +27,7 @@ type
     { If this item can be deleted (permanently), return true.
       When Delete is called, you should remove the item (permanently) }
     property CanDelete: Boolean read GetCanDelete;
+    property Enabled: Boolean read GetEnabled;
     { HelpName: used for displaying a help page for this item }
     property HelpName: string read GetHelpName write SetHelpName;
     { HintText: The tool tip that is displayed for this item }
@@ -85,6 +88,14 @@ begin
   Result := false;
 end;
 
+function TMenuPaletteItem.GetEnabled: Boolean;
+begin
+  if Assigned(FAction) then
+    Result := Action.Enabled
+  else
+    Result := False;
+end;
+
 function TMenuPaletteItem.GetHelpName: string;
 begin
   if Assigned(FAction) then
@@ -128,6 +139,11 @@ begin
     if Assigned(IDEImageList) then
       IDEImageList.Draw(Canvas, X, Y, Action.ImageIndex, dsTransparent, itImage);
   end;
+end;
+
+procedure TMenuPaletteItem.SetEnabled(Value: Boolean);
+begin
+  //
 end;
 
 procedure TMenuPaletteItem.SetHelpName(const Value: string);
